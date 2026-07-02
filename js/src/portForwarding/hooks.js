@@ -217,7 +217,9 @@ function validateName(name) {
 
 function validatePortField(port, fieldName) {
     const portPattern = /^(?:(\d{1,5})-)?(\d{1,5})$/;
-    if (typeof port !== "string") {
+    if (port === undefined || port === null) {
+        port = "";
+    } else if (typeof port !== "string") {
         port = port.toString();
     }
     if (port.length < 1) {
